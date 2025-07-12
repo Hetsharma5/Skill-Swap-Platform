@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSwap | Trade Your Skills</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header/Navigation -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-exchange-alt"></i>
+                <h1>SkillSwap</h1>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#" class="active" id="home-link">Home</a></li>
+                    <li><a href="#" id="browse-link">Browse Skills</a></li>
+                    <li><a href="#" id="my-profile-link">My Profile</a></li>
+                    <li><a href="#" id="my-swaps-link">My Swaps</a></li>
+                    <li><a href="#" id="admin-link" class="admin-only">Admin</a></li>
+                </ul>
+            </nav>
+            <div class="user-controls">
+                <button id="theme-toggle" class="btn-icon" title="Toggle Dark Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="user-dropdown">
+                    <button id="user-menu" class="btn-user">
+                        <img src="https://ui-avatars.com/api/?name=John+Doe" alt="User" class="user-avatar">
+                        <span>John Doe</span>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#" id="settings-link">Settings</a>
+                        <a href="#" id="logout-link">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Home Page (Default) -->
+            <section id="home-page" class="page active">
+                <div class="hero">
+                    <div class="hero-text">
+                        <h2>Trade Skills, Not Cash</h2>
+                        <p>Connect with people in your community to exchange knowledge and services without money changing hands.</p>
+                        <div class="hero-buttons">
+                            <button class="btn-primary" id="get-started-btn">Get Started</button>
+                            <button class="btn-secondary" id="how-it-works-btn">How It Works</button>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" alt="People collaborating">
+                    </div>
+                </div>
+
+                <div class="featured-skills">
+                    <h3>Popular Skills Being Swapped</h3>
+                    <div class="skills-grid">
+                        <div class="skill-card">
+                            <i class="fas fa-laptop-code"></i>
+                            <h4>Web Development</h4>
+                            <p>12 people offering</p>
+                        </div>
+                        <div class="skill-card">
+                            <i class="fas fa-language"></i>
+                            <h4>Language Tutoring</h4>
+                            <p>8 people offering</p>
+                        </div>
+                        <div class="skill-card">
+                            <i class="fas fa-camera"></i>
+                            <h4>Photography</h4>
+                            <p>15 people offering</p>
+                        </div>
+                        <div class="skill-card">
+                            <i class="fas fa-utensils"></i>
+                            <h4>Cooking Lessons</h4>
+                            <p>20 people offering</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonials">
+                    <h3>What Our Users Say</h3>
+                    <div class="testimonial-carousel">
+                        <div class="testimonial active">
+                            <p>"I traded guitar lessons for help with my resume and it was a game changer!"</p>
+                            <div class="testimonial-author">
+                                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah K.">
+                                <span>Sarah K.</span>
+                            </div>
+                        </div>
+                        <div class="testimonial">
+                            <p>"SkillSwap helped me find someone to teach me Photoshop in exchange for my Excel skills."</p>
+                            <div class="testimonial-author">
+                                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Michael T.">
+                                <span>Michael T.</span>
+                            </div>
+                        </div>
+                        <div class="testimonial">
+                            <p>"As a freelancer, this platform has been invaluable for skill development."</p>
+                            <div class="testimonial-author">
+                                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Priya M.">
+                                <span>Priya M.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-controls">
+                        <button class="btn-icon" id="prev-testimonial"><i class="fas fa-chevron-left"></i></button>
+                        <div class="indicators">
+                            <span class="indicator active"></span>
+                            <span class="indicator"></span>
+                            <span class="indicator"></span>
+                        </div>
+                        <button class="btn-icon" id="next-testimonial"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Browse Skills Page -->
+            <section id="browse-page" class="page">
+                <div class="page-header">
+                    <h2>Browse Skills</h2>
+                    <div class="search-filter">
+                        <div class="search-bar">
+                            <input type="text" placeholder="Search skills..." id="skill-search">
+                            <button class="btn-icon"><i class="fas fa-search"></i></button>
+                        </div>
+                        <div class="filter-dropdown">
+                            <select id="location-filter">
+                                <option value="">All Locations</option>
+                                <option value="local">Near Me</option>
+                                <option value="online">Online Only</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="user-profiles-grid">
+                    <!-- Sample profile cards - these would be dynamically generated in a real app -->
+                    <div class="profile-card">
+                        <div class="profile-header">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Alex Johnson" class="profile-photo">
+                            <div class="profile-info">
+                                <h3>Alex Johnson</h3>
+                                <p><i class="fas fa-map-marker-alt"></i> Chicago, IL</p>
+                                <div class="availability">
+                                    <span class="availability-tag">Weekends</span>
+                                    <span class="availability-tag">Evenings</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skills-section">
+                            <div class="skills-offered">
+                                <h4>Offering:</h4>
+                                <ul>
+                                    <li>Graphic Design</li>
+                                    <li>Photoshop</li>
+                                    <li>Illustration</li>
+                                </ul>
+                            </div>
+                            <div class="skills-wanted">
+                                <h4>Seeking:</h4>
+                                <ul>
+                                    <li>Copywriting</li>
+                                    <li>Social Media</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button class="btn-primary request-swap-btn">Request Swap</button>
+                    </div>
+
+                    <div class="profile-card">
+                        <div class="profile-header">
+                            <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="David Chen" class="profile-photo">
+                            <div class="profile-info">
+                                <h3>David Chen</h3>
+                                <p><i class="fas fa-map-marker-alt"></i> Online</p>
+                                <div class="availability">
+                                    <span class="availability-tag">Weekdays</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skills-section">
+                            <div class="skills-offered">
+                                <h4>Offering:</h4>
+                                <ul>
+                                    <li>Python Programming</li>
+                                    <li>Data Analysis</li>
+                                </ul>
+                            </div>
+                            <div class="skills-wanted">
+                                <h4>Seeking:</h4>
+                                <ul>
+                                    <li>Spanish Lessons</li>
+                                    <li>Video Editing</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button class="btn-primary request-swap-btn">Request Swap</button>
+                    </div>
+
+                    <div class="profile-card">
+                        <div class="profile-header">
+                            <img src="https://randomuser.me/api/portraits/women/63.jpg" alt="Maria Garcia" class="profile-photo">
+                            <div class="profile-info">
+                                <h3>Maria Garcia</h3>
+                                <p><i class="fas fa-map-marker-alt"></i> Miami, FL</p>
+                                <div class="availability">
+                                    <span class="availability-tag">Flexible</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skills-section">
+                            <div class="skills-offered">
+                                <h4>Offering:</h4>
+                                <ul>
+                                    <li>Spanish Tutoring</li>
+                                    <li>Yoga Instruction</li>
+                                </ul>
+                            </div>
+                            <div class="skills-wanted">
+                                <h4>Seeking:</h4>
+                                <ul>
+                                    <li>Home Organization</li>
+                                    <li>Gardening Help</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button class="btn-primary request-swap-btn">Request Swap</button>
+                    </div>
+
+                    <div class="profile-card">
+                        <div class="profile-header">
+                            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="James Wilson" class="profile-photo">
+                            <div class="profile-info">
+                                <h3>James Wilson</h3>
+                                <p><i class="fas fa-map-marker-alt"></i> Seattle, WA</p>
+                                <div class="availability">
+                                    <span class="availability-tag">Weekdays</span>
+                                    <span class="availability-tag">Afternoons</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skills-section">
+                            <div class="skills-offered">
+                                <h4>Offering:</h4>
+                                <ul>
+                                    <li>Home Repair</li>
+                                    <li>Carpentry</li>
+                                </ul>
+                            </div>
+                            <div class="skills-wanted">
+                                <h4>Seeking:</h4>
+                                <ul>
+                                    <li>Computer Repair</li>
+                                    <li>Excel Training</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button class="btn-primary request-swap-btn">Request Swap</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- My Profile Page -->
+            <section id="profile-page" class="page">
+                <div class="page-header">
+                    <h2>My Profile</h2>
+                    <button class="btn-secondary" id="edit-profile-btn">Edit Profile</button>
+                </div>
+
+                <div class="profile-container">
+                    <div class="profile-section">
+                        <div class="profile-photo-container">
+                            <img src="https://ui-avatars.com/api/?name=John+Doe" alt="Your Profile" class="profile-photo-large">
+                            <button class="btn-icon change-photo-btn"><i class="fas fa-camera"></i></button>
+                        </div>
+                        <div class="profile-details">
+                            <h3>John Doe</h3>
+                            <p><i class="fas fa-map-marker-alt"></i> New York, NY</p>
+                            <div class="profile-status">
+                                <label class="switch">
+                                    <input type="checkbox" id="profile-visibility" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                                <span>Public Profile</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-edit-form" style="display: none;">
+                        <div class="form-group">
+                            <label for="edit-name">Name</label>
+                            <input type="text" id="edit-name" value="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-location">Location</label>
+                            <input type="text" id="edit-location" value="New York, NY">
+                        </div>
+                        <div class="form-group">
+                            <label>Availability</label>
+                            <div class="availability-options">
+                                <label><input type="checkbox" checked> Weekdays</label>
+                                <label><input type="checkbox" checked> Weekends</label>
+                                <label><input type="checkbox"> Mornings</label>
+                                <label><input type="checkbox" checked> Afternoons</label>
+                                <label><input type="checkbox" checked> Evenings</label>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button class="btn-primary" id="save-profile-btn">Save Changes</button>
+                            <button class="btn-secondary" id="cancel-edit-btn">Cancel</button>
+                        </div>
+                    </div>
+
+                    <div class="skills-management">
+                        <div class="skills-column">
+                            <h3>Skills I Offer</h3>
+                            <ul class="skills-list" id="offered-skills">
+                                <li>
+                                    <span>Web Development</span>
+                                    <button class="btn-icon remove-skill"><i class="fas fa-times"></i></button>
+                                </li>
+                                <li>
+                                    <span>JavaScript Tutoring</span>
+                                    <button class="btn-icon remove-skill"><i class="fas fa-times"></i></button>
+                                </li>
+                                <li>
+                                    <span>Photo Editing</span>
+                                    <button class="btn-icon remove-skill"><i class="fas fa-times"></i></button>
+                                </li>
+                            </ul>
+                            <div class="add-skill">
+                                <input type="text" id="new-offered-skill" placeholder="Add a skill">
+                                <button class="btn-icon" id="add-offered-skill"><i class="fas fa-plus"></i></button>
+                            </div>
+                        </div>
+                        <div class="skills-column">
+                            <h3>Skills I Want</h3>
+                            <ul class="skills-list" id="wanted-skills">
+                                <li>
+                                    <span>Graphic Design</span>
+                                    <button class="btn-icon remove-skill"><i class="fas fa-times"></i></button>
+                                </li>
+                                <li>
+                                    <span>Spanish Lessons</span>
+                                    <button class="btn-icon remove-skill"><i class="fas fa-times"></i></button>
+                                </li>
+                            </ul>
+                            <div class="add-skill">
+                                <input type="text" id="new-wanted-skill" placeholder="Add a skill">
+                                <button class="btn-icon" id="add-wanted-skill"><i class="fas fa-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- My Swaps Page -->
+            <section id="swaps-page" class="page">
+                <div class="page-header">
+                    <h2>My Swaps</h2>
+                    <div class="swap-tabs">
+                        <button class="tab-btn active" data-tab="pending">Pending</button>
+                        <button class="tab-btn" data-tab="upcoming">Upcoming</button>
+                        <button class="tab-btn" data-tab="completed">Completed</button>
+                    </div>
+                </div>
+
+                <div class="swap-content">
+                    <!-- Pending Swaps Tab -->
+                    <div class="swap-tab-content active" id="pending-tab">
+                        <div class="swap-card">
+                            <div class="swap-info">
+                                <div class="swap-parties">
+                                    <div class="swap-party">
+                                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Alex Johnson">
+                                        <span>You offer <strong>Web Development</strong></span>
+                                    </div>
+                                    <div class="swap-arrow">
+                                        <i class="fas fa-exchange-alt"></i>
+                                    </div>
+                                    <div class="swap-party">
+                                        <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="David Chen">
+                                        <span>For <strong>Spanish Lessons</strong></span>
+                                    </div>
+                                </div>
+                                <div class="swap-meta">
+                                    <p><i class="fas fa-clock"></i> Requested 2 days ago</p>
+                                    <p><i class="fas fa-comment"></i> "I can help with your website in exchange for Spanish practice"</p>
+                                </div>
+                            </div>
+                            <div class="swap-actions">
+                                <button class="btn-secondary cancel-swap-btn">Cancel Request</button>
+                            </div>
+                        </div>
+
+                        <div class="swap-card incoming">
+                            <div class="swap-info">
+                                <div class="swap-parties">
+                                    <div class="swap-party">
+                                        <img src="https://randomuser.me/api/portraits/women/63.jpg" alt="Maria Garcia">
+                                        <span>Offers <strong>Yoga Instruction</strong></span>
+                                    </div>
+                                    <div class="swap-arrow">
+                                        <i class="fas fa-exchange-alt"></i>
+                                    </div>
+                                    <div class="swap-party">
+                                        <img src="https://ui-avatars.com/api/?name=John+Doe" alt="You">
+                                        <span>For your <strong>Photo Editing</strong></span>
+                                    </div>
+                                </div>
+                                <div class="swap-meta">
+                                    <p><i class="fas fa-clock"></i> Received yesterday</p>
+                                    <p><i class="fas fa-comment"></i> "I'd love to trade weekly yoga sessions for help with my product photos"</p>
+                                </div>
+                            </div>
+                            <div class="swap-actions">
+                                <button class="btn-primary accept-swap-btn">Accept</button>
+                                <button class="btn-secondary reject-swap-btn">Reject</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Upcoming Swaps Tab -->
+                    <div class="swap-tab-content" id="upcoming-tab">
+                        <div class="swap-card confirmed">
+                            <div class="swap-info">
+                                <div class="swap-parties">
+                                    <div class="swap-party">
+                                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="James Wilson">
+                                        <span>You offer <strong>Home Repair</strong></span>
+                                    </div>
+                                    <div class="swap-arrow">
+                                        <i class="fas fa-exchange-alt"></i>
+                                    </div>
+                                    <div class="swap-party">
+                                        <img src="https://ui-avatars.com/api/?name=John+Doe" alt="You">
+                                        <span>For <strong>Computer Repair</strong></span>
+                                    </div>
+                                </div>
+                                <div class="swap-meta">
+                                    <p><i class="fas fa-calendar-alt"></i> Scheduled for Saturday, June 10</p>
+                                    <p><i class="fas fa-map-marker-alt"></i> Your place</p>
+                                    <p><i class="fas fa-comment"></i> "I'll help with your leaky faucet on Saturday morning, and you can look at my laptop in the afternoon"</p>
+                                </div>
+                            </div>
+                            <div class="swap-actions">
+                                <button class="btn-secondary reschedule-btn">Reschedule</button>
+                                <button class="btn-secondary cancel-swap-btn">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Completed Swaps Tab -->
+                    <div class="swap-tab-content" id="completed-tab">
+                        <div class="swap-card completed">
+                            <div class="swap-info">
+                                <div class="swap-parties">
+                                    <div class="swap-party">
+                                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Alex Johnson">
+                                        <span>You offered <strong>Web Development</strong></span>
+                                    </div>
+                                    <div class="swap-arrow">
+                                        <i class="fas fa-exchange-alt"></i>
+                                    </div>
+                                    <div class="swap-party">
+                                        <img src="https://ui-avatars.com/api/?name=John+Doe" alt="You">
+                                        <span>For <strong>Graphic Design</strong></span>
+                                    </div>
+                                </div>
+                                <div class="swap-meta">
+                                    <p><i class="fas fa-check-circle"></i> Completed on May 15, 2023</p>
+                                    <div class="rating">
+                                        <div class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                        </div>
+                                        <p>"Alex was great to work with! Delivered exactly what we agreed on."</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swap-actions">
+                                <button class="btn-secondary view-feedback-btn">View Feedback</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Admin Page -->
+            <section id="admin-page" class="page admin-only">
+                <div class="page-header">
+                    <h2>Admin Dashboard</h2>
+                </div>
+
+                <div class="admin-tabs">
+                    <button class="tab-btn active" data-tab="moderation">Content Moderation</button>
+                    <button class="tab-btn" data-tab="users">User Management</button>
+                    <button class="tab-btn" data-tab="analytics">Analytics</button>
+                    <button class="tab-btn" data-tab="announcements">Announcements</button>
+                </div>
+
+                <div class="admin-content">
+                    <!-- Moderation Tab -->
+                    <div class="admin-tab-content active" id="moderation-tab">
+                        <h3>Pending Skill Approvals</h3>
+                        <div class="moderation-item">
+                            <div class="moderation-details">
+                                <p><strong>User:</strong> Michael Scott</p>
+                                <p><strong>Skill:</strong> "Expert in all things, especially being awesome"</p>
+                                <p><strong>Reason for Flag:</strong> Potentially inappropriate/exaggerated</p>
+                            </div>
+                            <div class="moderation-actions">
+                                <button class="btn-primary approve-btn">Approve</button>
+                                <button class="btn-secondary reject-btn">Reject</button>
+                            </div>
+                        </div>
+
+                        <div class="moderation-item">
+                            <div class="moderation-details">
+                                <p><strong>User:</strong> John Smith</p>
+                                <p><strong>Skill:</strong> "I can hack any website for you"</p>
+                                <p><strong>Reason for Flag:</strong> Violates terms of service</p>
+                            </div>
+                            <div class="moderation-actions">
+                                <button class="btn-primary approve-btn">Approve</button>
+                                <button class="btn-secondary reject-btn">Reject</button>
+                            </div>
+                        </div>
+
+                        <h3>Reported Users</h3>
+                        <div class="moderation-item">
+                            <div class="moderation-details">
+                                <p><strong>User:</strong> Jane Doe</p>
+                                <p><strong>Reports:</strong> 3</p>
+                                <p><strong>Last Report:</strong> "Requested payment for a skill swap"</p>
+                            </div>
+                            <div class="moderation-actions">
+                                <button class="btn-secondary warn-btn">Send Warning</button>
+                                <button class="btn-danger ban-btn">Ban User</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Users Tab -->
+                    <div class="admin-tab-content" id="users-tab">
+                        <div class="admin-search">
+                            <input type="text" placeholder="Search users..." id="admin-user-search">
+                            <button class="btn-icon"><i class="fas fa-search"></i></button>
+                        </div>
+
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>User</th>
+                                    <th>Join Date</th>
+                                    <th>Swaps</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Alex Johnson">
+                                        Alex Johnson
+                                    </td>
+                                    <td>Jan 15, 2023</td>
+                                    <td>7</td>
+                                    <td><span class="status-badge active">Active</span></td>
+                                    <td>
+                                        <button class="btn-icon" title="View Profile"><i class="fas fa-eye"></i></button>
+                                        <button class="btn-icon" title="Send Message"><i class="fas fa-envelope"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="David Chen">
+                                        David Chen
+                                    </td>
+                                    <td>Mar 2, 2023</td>
+                                    <td>3</td>
+                                    <td><span class="status-badge active">Active</span></td>
+                                    <td>
+                                        <button class="btn-icon" title="View Profile"><i class="fas fa-eye"></i></button>
+                                        <button class="btn-icon" title="Send Message"><i class="fas fa-envelope"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="James Wilson">
+                                        James Wilson
+                                    </td>
+                                    <td>Feb 10, 2023</td>
+                                    <td>0</td>
+                                    <td><span class="status-badge warning">Inactive</span></td>
+                                    <td>
+                                        <button class="btn-icon" title="View Profile"><i class="fas fa-eye"></i></button>
+                                        <button class="btn-icon" title="Send Message"><i class="fas fa-envelope"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="https://randomuser.me/api/portraits/women/63.jpg" alt="Maria Garcia">
+                                        Maria Garcia
+                                    </td>
+                                    <td>Apr 5, 2023</td>
+                                    <td>5</td>
+                                    <td><span class="status-badge banned">Banned</span></td>
+                                    <td>
+                                        <button class="btn-icon" title="View Profile"><i class="fas fa-eye"></i></button>
+                                        <button class="btn-icon" title="Unban"><i class="fas fa-unlock"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Analytics Tab -->
+                    <div class="admin-tab-content" id="analytics-tab">
+                        <div class="analytics-grid">
+                            <div class="analytics-card">
+                                <h4>Total Users</h4>
+                                <p class="stat">1,245</p>
+                                <p class="trend up"><i class="fas fa-arrow-up"></i> 12% from last month</p>
+                            </div>
+                            <div class="analytics-card">
+                                <h4>Active Swaps</h4>
+                                <p class="stat">328</p>
+                                <p class="trend up"><i class="fas fa-arrow-up"></i> 5% from last month</p>
+                            </div>
+                            <div class="analytics-card">
+                                <h4>Completed Swaps</h4>
+                                <p class="stat">1,892</p>
+                                <p class="trend up"><i class="fas fa-arrow-up"></i> 8% from last month</p>
+                            </div>
+                            <div class="analytics-card">
+                                <h4>Avg. Rating</h4>
+                                <p class="stat">4.6/5</p>
+                                <p class="trend neutral"><i class="fas fa-minus"></i> No change</p>
+                            </div>
+                        </div>
+
+                        <div class="chart-container">
+                            <h4>Monthly Activity</h4>
+                            <div class="chart-placeholder">
+                                <!-- In a real app, this would be a chart from Chart.js or similar -->
+                                <img src="https://via.placeholder.com/800x300?text=Monthly+Activity+Chart" alt="Monthly Activity Chart">
+                            </div>
+                        </div>
+
+                        <div class="export-actions">
+                            <button class="btn-primary"><i class="fas fa-download"></i> Export User Data</button>
+                            <button class="btn-primary"><i class="fas fa-download"></i> Export Swap Data</button>
+                            <button class="btn-primary"><i class="fas fa-download"></i> Export Feedback Data</button>
+                        </div>
+                    </div>
+
+                    <!-- Announcements Tab -->
+                    <div class="admin-tab-content" id="announcements-tab">
+                        <div class="announcement-form">
+                            <h4>Send Platform Announcement</h4>
+                            <div class="form-group">
+                                <label for="announcement-subject">Subject</label>
+                                <input type="text" id="announcement-subject" placeholder="Important update...">
+                            </div>
+                            <div class="form-group">
+                                <label for="announcement-message">Message</label>
+                                <textarea id="announcement-message" rows="5" placeholder="Type your announcement here..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="announcement-audience">Audience</label>
+                                <select id="announcement-audience">
+                                    <option value="all">All Users</option>
+                                    <option value="active">Active Users Only</option>
+                                    <option value="new">New Users (joined last 30 days)</option>
+                                </select>
+                            </div>
+                            <button class="btn-primary">Send Announcement</button>
+                        </div>
+
+                        <div class="past-announcements">
+                            <h4>Recent Announcements</h4>
+                            <div class="announcement-item">
+                                <h5>New Feature: Skill Categories</h5>
+                                <p class="meta">Sent to All Users on May 15, 2023</p>
+                                <p>We've added skill categories to make browsing easier. Check them out!</p>
+                            </div>
+                            <div class="announcement-item">
+                                <h5>Scheduled Maintenance</h5>
+                                <p class="meta">Sent to All Users on April 30, 2023</p>
+                                <p>The platform will be down for maintenance on May 2 from 2-4 AM EST.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>SkillSwap</h4>
+                    <p>Connecting people through skill exchange since 2023.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">How It Works</a></li>
+                        <li><a href="#">Safety Tips</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> support@skillswap.com</li>
+                        <li><i class="fas fa-phone"></i> (555) 123-4567</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 SkillSwap. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Modal for Swap Request -->
+    <div class="modal" id="swap-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Request Skill Swap</h3>
+            <div class="modal-body">
+                <div class="swap-details">
+                    <div class="swap-parties">
+                        <div class="swap-party">
+                            <img src="https://ui-avatars.com/api/?name=John+Doe" alt="You">
+                            <span>You offer <strong id="your-offer">Web Development</strong></span>
+                        </div>
+                        <div class="swap-arrow">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <div class="swap-party">
+                            <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="David Chen">
+                            <span>For <strong id="their-skill">Spanish Lessons</strong></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="swap-message">Message (optional)</label>
+                    <textarea id="swap-message" placeholder="Add a personal message..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="swap-availability">Your Availability</label>
+                    <input type="text" id="swap-availability" placeholder="e.g., Weekends, evenings">
+                </div>
+                <button class="btn-primary" id="send-swap-request">Send Request</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Feedback -->
+    <div class="modal" id="feedback-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Leave Feedback</h3>
+            <div class="modal-body">
+                <div class="swap-details">
+                    <p>You swapped <strong>Web Development</strong> for <strong>Graphic Design</strong> with Alex Johnson</p>
+                </div>
+                <div class="form-group">
+                    <label>Rating</label>
+                    <div class="rating-input">
+                        <i class="far fa-star" data-rating="1"></i>
+                        <i class="far fa-star" data-rating="2"></i>
+                        <i class="far fa-star" data-rating="3"></i>
+                        <i class="far fa-star" data-rating="4"></i>
+                        <i class="far fa-star" data-rating="5"></i>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="feedback-comment">Comment</label>
+                    <textarea id="feedback-comment" placeholder="How did the swap go?"></textarea>
+                </div>
+                <button class="btn-primary" id="submit-feedback">Submit Feedback</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
